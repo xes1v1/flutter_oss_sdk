@@ -52,7 +52,7 @@ class OssRequestSigner {
     DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(gmtMilliseconds);
     String weekDay = _formatWeekDay(dateTime.weekday);
     String month = _formatMonth(dateTime.month);
-    String result = "$weekDay, ${dateTime.day} $month ${dateTime.year} ${_dealIntWithZero(dateTime.hour)}:${_dealIntWithZero(dateTime.minute)}:${_dealIntWithZero(dateTime.second)} GMT";
+    String result = "$weekDay, ${_dealIntWithZero(dateTime.day)} $month ${dateTime.year} ${_dealIntWithZero(dateTime.hour)}:${_dealIntWithZero(dateTime.minute)}:${_dealIntWithZero(dateTime.second)} GMT";
     print("_getGMTDate=$result");
     _request.headers['Date']=result;
     return result;
